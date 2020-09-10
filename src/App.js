@@ -1,24 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {Router,Link} from "@reach/router";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import CatFacts from './components/CatFacts';
+import Pokemon from './components/Pokemon';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="">
+      <div className="d-flex mx-auto col-5 justify-content-between">
+        <Link to="/cat-facts" >Cat Facts</Link>
+        <Link to="/pokemon">Pokemon</Link>
+      </div>
+      <Router>
+        <CatFacts path="/cat-facts" />
+        <Pokemon path="/pokemon/:banana" />
+      </Router>
+      
     </div>
   );
 }
